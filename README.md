@@ -28,25 +28,26 @@ For example:
 When you finish training the net and want to generate the thermal piture, you need to use two parameter(last_conv_net & w_variables). as following:
 
 `
+
 import numpy as np
 
 def py_returnCAMmap(last_conv_net, w_variables):
 
-    print(activation.shape)
+    print(last_conv_net.shape)
     
     if activation.shape[0] == 1: # only one image
     
-        n_feat, w, h = activation[0].shape
+        n_feat, w, h = last_conv_net[0].shape
         
-        act_vec = np.reshape(activation[0], [n_feat, w*h])
+        act_vec = np.reshape(last_conv_net[0], [n_feat, w*h])
         
-        n_top = weights_LR.shape[0]
+        n_top = w_variables.shape[0]
         
         out = np.zeros([w, h, n_top])
         
         for t in range(n_top):
         
-            weights_vec = np.reshape(weights_LR[t], [1, weights_LR[t].shape[0]])
+            weights_vec = np.reshape(w_variables[t], [1, w_variables[t].shape[0]])
             
             heatmap_vec = np.dot(weights_vec,act_vec)
             
