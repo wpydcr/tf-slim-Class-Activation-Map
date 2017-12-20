@@ -17,7 +17,10 @@ The most important part is:
 
 `net = slim.avg_pool2d(net, [8, 8], padding='VALID',
                       scope='AvgPool_1a_8x8') #1x1x2048`
+                      
 `net = slim.dropout(net, keep_prob=dropout_keep_prob, scope='Dropout_1b')`
+
 `logits = slim.fully_connected(net, num_classes, activation_fn=None,
                      normalizer_fn=None, scope='fc')`
+                     
 `w_variables = slim.get_model_variables()[-2]#10*2048`
