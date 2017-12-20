@@ -14,6 +14,7 @@ This CAM(Class Activation Map) need change some net structure，I explicitly wro
 This code based on Inception v3.
 
 The most important part is:
+`
     net = slim.avg_pool2d(net, [8, 8], padding='VALID',
                       scope='AvgPool_1a_8x8') #1x1x2048
     net = slim.dropout(net, keep_prob=dropout_keep_prob, scope='Dropout_1b')
@@ -22,4 +23,4 @@ The most important part is:
                      normalizer_fn=None, scope='fc')
     w_variables = slim.get_model_variables()[-2]#10*2048
     if spatial_squeeze: 
-        logits = tf.squeeze(logits, [1, 2], name='SpatialSqueeze')
+        logits = tf.squeeze(logits, [1, 2], name='SpatialSqueeze')`
