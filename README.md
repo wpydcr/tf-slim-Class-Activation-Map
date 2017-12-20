@@ -28,7 +28,6 @@ For example:
 When you finish training the net and want to generate the thermal piture, you need to use two parameter(last_conv_net & w_variables). as following:
 
 `
-
 import numpy as np
 
 def py_returnCAMmap(last_conv_net, w_variables):
@@ -60,4 +59,5 @@ def py_returnCAMmap(last_conv_net, w_variables):
         raise Exception('Not implemented')
         
     return out
-    `
+    
+    `
