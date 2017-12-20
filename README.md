@@ -29,7 +29,7 @@ When you finish training the net and want to generate the thermal piture, you ne
 
 `
     
-      import numpy as np
+    import numpy as np
 
     def py_returnCAMmap(last_conv_net, w_variables):
 
